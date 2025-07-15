@@ -5,8 +5,8 @@
 
 본 프로젝트는 IMDb 이진 감성 분류 데이터셋을 기반으로, 사전학습 언어모델에 대한 다양한 Fine-Tuning 기법의 성능 및 효율성을 비교하고자 수행되었습니다. 실험은 다음과 같이 두 파트로 나뉘어 진행되었습니다.
 
-- **Part 2**: DistilBERT 모델 기반 Full Fine-Tuning vs LoRA (Low-Rank Adaptation)
-- **Part 3**: BERT-base 모델 기반 Full Fine-Tuning vs Prefix Tuning
+- **Part 1**: DistilBERT 모델 기반 Full Fine-Tuning vs LoRA (Low-Rank Adaptation)
+- **Part 2**: BERT-base 모델 기반 Full Fine-Tuning vs Prefix Tuning
 
 두 실험 모두 동일한 데이터셋과 유사한 학습 조건에서 진행되었으며, 정확도, 손실값, 파라미터 수, 훈련 시간, GPU 메모리 사용량을 기준으로 비교 분석하였습니다.
 
@@ -15,8 +15,8 @@
 ## 실험 환경
 
 - **모델**:
-  - Part 2: `distilbert-base-uncased`
-  - Part 3: `bert-base-uncased`
+  - Part 1: `distilbert-base-uncased`
+  - Part 2: `bert-base-uncased`
 - **데이터**: IMDb 감성 분류 (긍정/부정 이진 분류, `sentences`, `labels` 컬럼 포함 CSV)
 - **입력 길이**: 최대 256 토큰 (`padding='max_length'`, `truncation=True`)
 - **하드웨어**: Google Colab Pro (NVIDIA A100 GPU)
@@ -28,7 +28,7 @@
 
 ---
 
-## Part 2: Full Fine-Tuning vs LoRA (DistilBERT)
+## Part 1: Full Fine-Tuning vs LoRA (DistilBERT)
 
 | 항목 | Full Fine-Tuning | LoRA Fine-Tuning |
 |------|------------------|------------------|
@@ -43,7 +43,7 @@
 
 ---
 
-## Part 3: Full Fine-Tuning vs Prefix Tuning (BERT-base)
+## Part 2: Full Fine-Tuning vs Prefix Tuning (BERT-base)
 
 | 항목 | Full Fine-Tuning | Prefix Tuning |
 |------|------------------|----------------|
